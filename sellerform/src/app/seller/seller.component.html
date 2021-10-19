@@ -1,0 +1,67 @@
+<form class="background mb-5" [formGroup]="myform1">
+    <div style="margin: 15px;">
+      <label>Seller Name</label>
+      <input style="margin: 10px;border: 2px solid black;border-radius: 10px;" formControlName="name" type="text">
+    </div>
+    <div>
+      <label>Currencies</label>
+      <select style="margin: 5px;border: 2px solid black;border-radius: 10px;margin-right: 160px;" formControlName="currency">
+        <option *ngFor="let c of currencies">{{c}}</option>
+      </select>
+    </div>
+    <div style="margin: 10px;">
+      <label>Offices</label>
+      <select style="margin-left:30px;border: 2px solid black;border-radius: 10px;margin-right: 160px;" formControlName="office">
+        <option *ngFor="let f of offices">{{f}}</option>
+      </select>
+    </div>
+    <div style="margin: 10px;">
+      <label style="margin-left: -11%;">Deal Type :</label>
+      <input style="margin-left:10px;" formControlName="Dealbidded" type="checkbox" id="bidded" name="bidded" value="bid">
+      <label style="margin-left:10px;" for="DealType1">Bidded</label><br>
+      <input style="margin-left: -2%;" formControlName="Dealdone" type="checkbox" id="guaranted" name="guaranted" value="gaurantee">
+      <label style="margin-left:10px;"for="DealType2">Guaranted</label><br>
+    </div> 
+    <div style="margin-right: -2%;">
+      <label>Contact Number</label>
+      <input style="margin-left:10px;margin: 10px;border: 2px solid black;border-radius: 10px;" formControlName="contactnumber" type="text">
+    </div>
+    <div style="margin-left:-4%;">
+      <label>Email</label>
+      <input style="margin-left:10px;margin: 10px;border: 2px solid black;border-radius: 10px;" formControlName="email" type="email">
+    </div>
+    <div>
+      <button [disabled]="myform1.invalid"class="btn btn-success" type="submit" (click)="submit()">Submit</button>
+    </div>
+  </form>
+  
+
+  
+  <div>
+    <table class="table table-striped" style="padding: 10%;">
+      <thead>
+        <th>Name</th>
+          <th>Currencies</th>
+          <th>Offices</th>
+          <th>Bidded Deals</th>
+          <th>Guaranted Deals</th>
+          <th>Actions</th>
+          <th>Delete</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of mydata;let i=index">
+          <td>{{m.name}}</td>
+          <td>{{m.currency}}</td>
+          <td>{{m.office}}</td>
+          <td>{{m.Dealdone}}</td>
+          <td>{{m.Dealbidded}}</td>
+          <td><button class="btn btn-primary btn-sm"  (click)="editData(m,i)">Edit</button>
+          </td> 
+          <td><button class="btn btn-danger btn-sm"(click)="ondelete(i)">Delete</button>
+          </td>
+  
+          <hr>
+        </tr>
+      </tbody>
+    </table>
+  </div>
