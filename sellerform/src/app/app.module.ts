@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SellerComponent } from './seller/seller.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    SellerComponent
+    SellerComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
